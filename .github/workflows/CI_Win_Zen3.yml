@@ -14,6 +14,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+        
+    - name: Add Ninja to PATH
+      shell: powershell
+      run: |
+        $env:PATH = "C:\tools\ninja;" + $env:PATH
+        Write-Host "Ninja added to PATH: $env:PATH"
 
     - name: Benchmark
       shell: powershell
